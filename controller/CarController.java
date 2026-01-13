@@ -2,6 +2,8 @@ package com.anararabli.abbtech.controller;
 
 import com.anararabli.abbtech.dto.CarDto;
 import com.anararabli.abbtech.service.CarService;
+import com.anararabli.abbtech.service.impl.CarServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,13 +21,15 @@ import java.util.List;
 @RequestMapping("/api/cars")
 public class CarController {
 
+
     private final CarService carService;
 
     public CarController(CarService carService) {
         this.carService = carService;
     }
 
-    @GetMapping
+
+    @GetMapping("/allcar")
     public List<CarDto> getAllCars() {
         return carService.getAllcars();
     }
